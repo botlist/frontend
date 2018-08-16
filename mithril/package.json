@@ -1,0 +1,41 @@
+{
+	"name": "botlist.gg",
+	"version": "0.0.1",
+	"description": "botlist.gg's Frontend",
+	"main": "webpack.config.js",
+	"dependencies": {
+		"clean-webpack-plugin": "^0.1.19",
+		"cross-env": "^5.2.0",
+		"css-loader": "^1.0.0",
+		"file-loader": "^1.1.11",
+		"material-design-icons": "^3.0.1",
+		"materialize-css": "^1.0.0-rc.2",
+		"mini-css-extract-plugin": "^0.4.1",
+		"mithril": "^1.1.6",
+		"moment": "^2.22.2",
+		"node-sass": "^4.9.3",
+		"sass-loader": "^7.1.0",
+		"webpack": "^4.16.5",
+		"webpack-cli": "^3.1.0",
+		"webpack-manifest-plugin": "^2.0.3"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"start": "npm run start:prod",
+		"start:dev": "npm run webpack:dev",
+		"start:prod": "npm run webpack:prod",
+		"webpack:dev": "cross-env NODE_ENV=development webpack --progress --hide-modules --watch",
+		"webpack:prod": "cross-env NODE_ENV=production webpack --progress --hide-modules --watch -p",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/botlist/front.git"
+	},
+	"author": "cakedan",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/botlist/front/issues"
+	},
+	"homepage": "https://github.com/botlist/front#readme"
+}

@@ -1,0 +1,58 @@
+.navbar-fixed {
+	z-index: 998;
+}
+
+nav.bot-nav {
+	background-color: rgb(28, 33, 30);
+
+	.container {
+		.nav-wrapper {
+			.bot-nav-brand {
+				@extend .brand-logo;
+				@extend .center;
+
+				color: $botlistGreen;
+			}
+
+			.bot-nav-category {
+				@extend .hide-on-med-and-down;
+
+				.special-button {
+					display: flex;
+					align-items: center;
+					height: 64px;
+					a {
+						border-radius: 3px;
+						line-height: 32px;
+						color: white;
+						transition: .3s background-color;
+					}
+					a:focus, a:hover {
+						transition: .3s background-color;
+					}
+				}
+				.login {
+					@extend .special-button;
+
+					a {
+						background-color: $blurple;
+					}
+					a:focus, a:hover {
+						background-color: $blurpleDark;
+					}
+				}
+				.logout {
+					@extend .special-button;
+
+					a {
+						color: $botlistGreyDark;
+						background-color: $redple;
+					}
+					a:focus, a:hover {
+						background-color: $redpleDark;
+					}
+				}
+			}
+		}
+	}
+}

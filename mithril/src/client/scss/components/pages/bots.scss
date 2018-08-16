@@ -1,0 +1,431 @@
+.page.bots {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-flow: column wrap;
+
+	.bot-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100vh;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 1000;
+
+		.close {
+			@extend .right;
+
+			i {
+				cursor: pointer;
+			}
+		}
+
+		.container {
+			.bot-information {
+				@extend .container;
+
+				background-color: $botlistGreyDark;
+				height: 250px;
+				width: 100%;
+				margin-top: 10%;
+				border-radius: 6px;
+
+				.bot-header {
+					@extend .row;
+					@extend .center-align;
+
+					padding-top: 25px;
+
+					.details {
+						.avatar {
+							margin-right: 10px;
+							a {
+								@extend .avatar-picture;
+								background-color: $botlistGreyDark;
+							}
+						}
+
+						span {
+							font-size: 3vmin;
+						}
+						.username {
+							color: white;
+						}
+						.discriminator {
+							color: $botlistDiscriminator;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.bots {
+		@extend .row;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-flow: row wrap;
+		width: 100%;
+
+		.bot {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-left: 0;
+			flex-grow: 1;
+
+			.new-card {
+				@extend .card;
+				@extend .hoverable;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 200px;
+				min-width: 500px;
+				max-width: 75%;
+				border-radius: 12px;
+				cursor: pointer;
+
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+
+				.grid {
+					height: 100%;
+					width: 100%;
+					min-height: 200px;
+					min-width: 500px;
+					padding: 28px 42px;
+					display: grid;
+					grid-template-columns: 84px 1fr;
+					grid-template-areas: 'avatar header' 'invite details';
+					grid-column-gap: 24px;
+					grid-row-gap: 0px;
+					border-radius: 12px;
+					background-color: $botlistGreyDark;
+					opacity: 0.95;
+
+					.avatar {
+						grid-area: 'avatar';
+						max-height: 84px;
+						max-width: 84px;
+
+						img {
+							@extend .circle;
+
+							max-height: 100%;
+							max-width: 100%;
+						}
+					}
+					.header {
+						width: 100%;
+						grid-area: 'header';
+						font-size: 0.875rem;
+						font-weight: 400;
+						line-height: 1rem;
+						letter-spacing: 0;
+
+						.title {
+							display: flex;
+							align-items: center;
+							justify-content: flex-start;
+
+							.username {
+								span {
+									font-size: 20px;
+									line-height: 24px;
+								}
+	
+								.discriminator {
+									color: $botlistDiscriminator;
+								}
+							}
+						}
+
+						.description {
+							margin-top: 4px;
+							white-space: pre-line;
+							word-wrap: break-word;
+
+							p {
+								max-width: 308px;
+							}
+
+							span {
+								max-width: 100%;
+								overflow: hidden;
+								text-overflow: ellipsis;
+							}
+						}
+
+						.upvotes {
+							position: absolute;
+							top: 28px;
+							right: 42px;
+
+							display: flex;
+							justify-content: flex-start;
+
+							padding: 2px 7px 2px 5px;
+							border-radius: 6px;
+							background-color: $botlistBlack;
+							color: white;
+							cursor: pointer;
+							transition: .3s background-color;
+							
+							span {
+								display: flex;
+								align-items: center;
+								justify-content: center;
+							}
+						}
+						.upvotes:hover, .upvotes:focus {
+							background-color: $botlistGreen;
+							transition: .3s background-color;
+						}
+					}
+					.invite {
+						grid-area: 'invite';
+						display: flex;
+						align-items: center;
+						justify-content: center;
+
+						a {
+							border-radius: 3px;
+							padding: 5px 10px;
+							color: white;
+							background-color: $blurple;
+							transition: .3s background-color;
+						}
+						a:focus, a:hover {
+							background-color: $blurpleDark;
+							transition: .3s background-color;
+						}
+					}
+					.details {
+						grid-area: 'details';
+						display: flex;
+						align-items: center;
+						justify-content: space-around;
+						
+						.counts {
+							width: 50%;
+							max-width: 50%;
+							display: flex;
+							align-items: center;
+							justify-content: space-around;
+
+							.servers {
+								display: flex;
+								justify-content: flex-start;
+
+								padding: 2px 7px 2px 5px;
+								border-radius: 6px;
+								background-color: $blurple;
+								color: white;
+								
+								span {
+									display: flex;
+									align-items: center;
+									justify-content: center;
+								}
+							}
+						}
+
+						.authors {
+							width: 50%;
+							max-width: 50%;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							.author {
+								@extend .circle;
+	
+								margin-right: 5px;
+								display: block;
+								height: 22px;
+								width: 22px;
+								background-color: transparent;
+								background-repeat: no-repeat;
+								background-position: center;
+								background-size: cover;
+							}
+						}
+					}
+				}
+			}
+
+			@media (max-width: 720px) {
+				.new-card {
+					
+				}
+			}
+
+			.card {
+				@extend .hoverable;
+
+				background-color: $botlistGreyDark;
+
+				.card-image {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: $botlistGreyDarker;
+
+					img {
+						width: auto;
+						max-height: 250px;
+						max-width: 100%;
+					}
+
+					.avatar {
+						@extend .avatar-picture;
+						@extend .halfway-fab;
+
+						left: 10px;
+
+						background-color: $botlistGreyDark;
+					}
+
+					.upvotes {
+						@extend .halfway-fab;
+						@extend .center-align;
+
+						position: absolute;
+						right: 24px;
+						bottom: -20px;
+						padding: 5px;
+						padding-right: 7px;
+						border-radius: 6px;
+						background-color: $botlistBlack;
+						color: white;
+						cursor: pointer;
+						transition: .3s background-color;
+						
+						span {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						}
+					}
+					.upvotes:hover, .upvotes:focus {
+						background-color: $botlistGreen;
+						transition: .3s background-color;
+					}
+				}
+
+				.card-stacked {
+					.card-content {
+						background-color: $botlistGreyDark;
+						color: white;
+
+						.card-title {
+							.discriminator {
+								color: $botlistDiscriminator;
+							}
+						}
+
+						.description {
+							white-space: pre-wrap;
+							word-wrap: break-work;
+						}
+					}
+					.card-action {
+						@extend .row;
+
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						flex-flow: row wrap;
+						background-color: $botlistGreyDarker;
+						border-top: 1px solid black;
+
+						a {
+							@extend .btn-flat;
+							@extend .center-align;
+
+							flex-grow: 1;
+							color: $botlistTabText !important;
+							margin: 2px !important;
+							text-transform: none !important;
+						}
+
+						a:hover, a:focus {
+							color: $botlistTabText !important;
+						}
+					}
+				}
+
+				.card-content {
+					background-color: $botlistGreyDark;
+					color: white;
+
+					.card-title {
+						.discriminator {
+							color: $botlistDiscriminator;
+						}
+					}
+
+					.links {
+						.link {
+							a {
+								@extend .btn-flat;
+								@extend .waves-effect;
+								@extend .waves-teal;
+
+								color: red;
+							}
+						}
+					}
+				}
+
+				.card-tabs {
+					background-color: $botlistGreyDark;
+
+					.tabs {
+						background-color: $botlistGreyDark;
+
+						.tab {
+							a {
+								color: $botlistTabText;
+							}
+							a:focus.active {
+								background-color: $botlistTabTextHover;
+							}
+						}
+
+						.indicator {
+							background-color: $botlistTabIndicator;
+						}
+					}
+				}
+
+				.card-tabs-content {
+					@extend .card-content;
+
+					background-color: $botlistGreyDarker;
+
+					.information {
+						.link {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
+							a {
+								@extend .btn-flat;
+
+								color: $botlistTabText;
+								text-transform: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

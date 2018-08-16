@@ -1,0 +1,27 @@
+.bot-search {
+	@extend .container;
+	@extend .row;
+
+	color: white;
+
+	.field {
+		@extend .input-field;
+
+		.prefix {
+			@extend .no-select;
+
+			cursor: pointer;
+		}
+
+		input {
+			transition: .3s border-bottom;
+		}
+
+		input:focus {
+			color: white !important;
+			background-color: transparent !important;
+			border-bottom: 2px solid white !important;
+			transition: .3s border-bottom;
+		}
+	}
+}
